@@ -30,11 +30,16 @@ function showFetchedData(kksupportResponse) {
 
     const ipv4 = kksupportResponse["resolved"][0]["ip"];
     const isKKManaged = kksupportResponse["isKKManaged"];
+    const isManagedBy = kksupportResponse["isManagedBy"];
+    const cmsTitle = kksupportResponse["cms"];
     if (isKKManaged) {
         displayElement("isKKDomain", "<span style='color: green'>ja</span>")
+        displayLink("manager", isManagedBy["title"], isManagedBy["url"]);
+        displayElement("cms", cmsTitle);
     } else {
         displayElement("isKKDomain", "<span style='color: red'>nein</span>")
     }
+
     displayElement("ipv4", ipv4);
 }
 
@@ -92,8 +97,6 @@ function displayLink(id, title, url) {
     a.title = title;
     a.target = "_blank";
     a.innerText = title;
-    a.classList.add("text-red-700");
-    a.classList.add("hover:text-red-500");
     a.classList.add("underline");
     document.getElementById("manager").appendChild(a);
 }
