@@ -21,8 +21,21 @@ async function loadData(url) {
     if (!response.ok) {
         return;
     }
-    const kksupportResponse = await response.text();
-    document.write(kksupportResponse);
+    const kksupportResponse = await response.json();
+    showFetchedData(kksupportResponse);
+
+}
+
+function showFetchedData(kksupportResponse) {
+
+    const ipv4 = kksupportResponse["resolved"][0]["ip"];
+    const isKKManaged = kksupportResponse["isKKManaged"];
+    if (isKKManaged) {
+        displayElement("isKKDomain", "<span style='color: green'>ja</span>")
+    } else {
+        displayElement("isKKDomain", "<span style='color: red'>nein</span>")
+    }
+    displayElement("ipv4", ipv4);
 }
 
 
