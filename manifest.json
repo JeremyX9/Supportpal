@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "xSupport",
+  "version": "1.0",
+
+  "description": "Digs for website information and displays it in a popup.",
+
+  "icons": {
+    "48": "icons/xSupport.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "webRequest",
+    "dns",
+    "webNavigation"
+  ],
+  "browser_action": {
+    "default_icon": "icons/xSupport.png",
+    "default_title": "xSupport",
+    "default_popup": "src/index.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

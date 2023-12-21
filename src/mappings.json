@@ -1,0 +1,31 @@
+{
+    "managers": {
+        "116.202.252.15": {
+            "title": "Hetzner",
+            "login": "https://accounts.hetzner.com/login"
+        },
+        "136.243.119.250": {
+            "title": "web11.kk-software.de",
+            "login": "https://kundencenter.kk-software.de/"
+        },
+        "136.243.119.252": {
+            "title": "web12.kk-software.de",
+            "login": "https://kundencenter.kk-software.de/"
+        }
+
+    },
+    "cms": {
+        "wp-": {
+            "title": "Wordpress",
+            "login": "/wp-admin"
+        },
+        "typo3": {
+            "title": "TYPO3",
+            "login": "/typo3"
+        },
+        "Entwicklung: K&K Software AG:": {
+            "title": "kkCMS",
+            "login": "/kkCMS.php?"
+        }
+    }
+}
