@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Digs for website information and displays it in a popup.",
   "icons": {
-    "48": "icons/xSupport.png"
+    "48": "icons/Supportpal.png"
   },
   "permissions": [
     "activeTab",
@@ -14,8 +14,8 @@
     "webNavigation"
   ],
   "browser_action": {
-    "default_icon": "icons/xSupport.png",
-    "default_title": "xSupport",
+    "default_icon": "icons/Supportpal.png",
+    "default_title": "Supportpal",
     "default_popup": "src/index.html"
   }
 }

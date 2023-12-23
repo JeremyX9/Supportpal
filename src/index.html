@@ -1,106 +1,139 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link type="text/css" rel="stylesheet" href="style.css">
-    <script defer src="index.js"></script>
-</head>
-<body class="bg-cyan-950 font-mono font-bold text-white p-2 w-[30rem] text-white">
-  <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 
-    
-    <div id="accordion-color" data-accordion="collapse" data-active-classes="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white">
-  <h2 id="accordion-color-heading-1">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-color-body-1" aria-expanded="true" aria-controls="accordion-color-body-1">
-      <span>Default Information</span>
-      <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-      </svg>
-    </button>
-  </h2>
-  <div id="accordion-color-body-1" class="hidden" aria-labelledby="accordion-color-heading-1">
-    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-      <table style="width:100%" class="text-left">
-        <tr class="border-y border-cyan-900">
-          <th>Ist bei K&K?</th>
-          <td id="isKKDomain">...</td>
-        </tr>
-        <tr class="border-y border-cyan-900">
-          <th>Managen:</th>
-          <td id="manager">...</td>
-        </tr>
-        <tr class="border-y border-cyan-900">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link type="text/css" rel="stylesheet" href="/src/CSS/style.css">
+</head>
+
+<body class="bg-cyan-950 font-mono font-bold text-white p-2 w-[30rem] text-white">
+  <script src="/src/JS/index.js"></script>
+  <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+  <div id="error" class="text-red-500 hidden m-2 p-2 rounded-md border border-red-500 justify-center items-center"></div>
+  <div id="accordion-color" data-accordion="collapse"
+    data-active-classes="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white">
+    <h2 id="accordion-color-heading-1">
+      <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3"
+        data-accordion-target="#accordion-color-body-1" aria-expanded="true" aria-controls="accordion-color-body-1">
+        <span>Default Information</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 5 5 1 1 5" />
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-color-body-1" class="hidden" aria-labelledby="accordion-color-heading-1">
+      <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+        <table style="width:100%" class="text-left">
+          <tr class="border-y border-cyan-900">
+            <th>Ist bei K&K?</th>
+            <td id="isKK">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th>Managen:</th>
+            <td id="manager">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
             <th>CMS:</th>
             <td id="cms">...</td>
           </tr>
-        <tr class="border-y border-cyan-900">
-          <th>IPv4:</th>
-          <td id="ipv4">...</td>
-        </tr>
-        <tr class="border-y border-cyan-900">
-          <th>IPv6:</th>
-          <td id="ipv6">...</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <h2 id="accordion-color-heading-2">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 :ring-4  dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-color-body-2" aria-expanded="false" aria-controls="accordion-color-body-2">
-      <span>Namservers / MX</span>
-      <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-      </svg>
-    </button>
-  </h2>
-  <div id="accordion-color-body-2" class="hidden" aria-labelledby="accordion-color-heading-2">
-    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-      <table style="width:100%" class="text-left">
-
-        <tr class="border-y border-cyan-900">
-            <th>Namservers:</th>
-            <td>...</td>
+          <tr class="border-y border-cyan-900">
+            <th>IPv4:</th>
+            <td id="ip">...</td>
           </tr>
-        <tr class="border-y border-cyan-900">
-          <th></th>
-          <td>...</td>
-        </tr>
-        <tr class="border-y border-cyan-900">
-          <th>MX:</th>
-          <td>...</td>
-        </tr>
-      </table>
+        </table>
+      </div>
     </div>
-  </div>
-  <h2 id="accordion-color-heading-3">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
-      <span>DNS Records</span>
-      <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-      </svg>
-    </button>
-  </h2>
-  <div id="accordion-color-body-3" class="hidden" aria-labelledby="accordion-color-heading-3">
-    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-      <table style="width:100%" class="text-left">
-        <tr class="border-y border-cyan-900">
+    <h2 id="accordion-color-heading-2">
+      <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 :ring-4  dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3"
+        data-accordion-target="#accordion-color-body-2" aria-expanded="false" aria-controls="accordion-color-body-2">
+        <span>Mailsettings</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 5 5 1 1 5" />
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-color-body-2" class="hidden" aria-labelledby="accordion-color-heading-2">
+      <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+        <table style="width:100%" class="text-left">
+
+          <tr class="border-y border-cyan-900">
+            <th>MX:</th>
+            <td id="mx">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th>Admin:</th>
+            <td id="mail-admin">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th>IMAP</th>
+            <td id="imap-servername">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th></th>
+            <td id="imap-port">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th>POP:</th>
+            <td id="pop-servername">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th></th>
+            <td id="pop-port">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th>SMTP:</th>
+            <td id="smtp-servername">...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th></th>
+            <td id="smtp-port">...</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <h2 id="accordion-color-heading-3">
+      <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3"
+        data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
+        <span>DNS Records</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 5 5 1 1 5" />
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-color-body-3" class="hidden" aria-labelledby="accordion-color-heading-3">
+      <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+        <table style="width:100%" class="text-left">
+          <tr class="border-y border-cyan-900">
             <th>CMS:</th>
             <td>...</td>
           </tr>
-        <tr class="border-y border-cyan-900">
-          <th>IPv4:</th>
-          <td>...</td>
-        </tr>
-        <tr class="border-y border-cyan-900">
-          <th>IPv6:</th>
-          <td>...</td>
-        </tr>
-      </table>
+          <tr class="border-y border-cyan-900">
+            <th>IPv4:</th>
+            <td>...</td>
+          </tr>
+          <tr class="border-y border-cyan-900">
+            <th>IPv6:</th>
+            <td>...</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-    <div class="text-xs p-2 w-full flex justify-end text-gray-600"><p>version 0.0.1</p></div>
+  <div class="text-xs p-2 w-full flex justify-end text-gray-600">
+    <p>version 0.0.1</p>
+  </div>
 </body>
+
 </html>

@@ -4,11 +4,18 @@
   "description": "",
   "main": "background.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx tailwindcss -i ./src/CSS/tailwind.css -o ./src/CSS/style.css --watch",
+    "build-watch": "tsc src/TS/index.ts --outFile src/JS/index.js --watch",
+    "build": "tsc src/TS/index.ts --outFile src/JS/index.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chrome": "^0.0.254",
+    "@types/firefox-webext-browser": "^120.0.0",
+    "@types/html": "^1.0.4",
+    "@types/node": "^20.10.5",
     "tailwindcss": "^3.3.7"
   },
   "dependencies": {

@@ -12,3 +12,9 @@ td {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.link:hover {
+    opacity: 0.7;
+}
+.link {
+    cursor: pointer;
+}
