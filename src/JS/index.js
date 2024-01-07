@@ -39,6 +39,11 @@ var CMS = /** @class */ (function () {
     }
     return CMS;
 }());
+var ERPNextLink = /** @class */ (function () {
+    function ERPNextLink() {
+    }
+    return ERPNextLink;
+}());
 var Manager = /** @class */ (function () {
     function Manager() {
     }
@@ -111,6 +116,21 @@ var DataProvider = /** @class */ (function () {
                             cms.title = data["cms"]["title"];
                             cms.login = data["cms"]["url"];
                             resolve(cms);
+                        });
+                    })];
+            });
+        });
+    };
+    DataProvider.prototype.getERPNextUrl = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        _this.data.then(function (data) {
+                            var erpLink = new ERPNextLink();
+                            erpLink.name = data["erpnextUrl"]["name"];
+                            erpLink.url = data["erpnextUrl"]["url"];
+                            resolve(erpLink);
                         });
                     })];
             });
@@ -231,34 +251,51 @@ var ExtensionBuilder = /** @class */ (function () {
     }
     ExtensionBuilder.prototype.build = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var isKKNode, managerNode, cmsNode, ipNode, _a, _b, _c, _d, _e, _f, mxNode, mailAdminNode, imapServerNode, imapPortNode, popServerNode, popPortNode, smtpServerNode, smtpPortNode, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3;
+            var isKKNode, managerNode, cmsNode, ipNode, erpnextUrl, _a, _b, _c, _d, _e, _f, _g, _h, mxNode, mailAdminNode, imapServerNode, imapPortNode, popServerNode, popPortNode, smtpServerNode, smtpPortNode, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5;
             var _this = this;
-            return __generator(this, function (_4) {
-                switch (_4.label) {
+            return __generator(this, function (_6) {
+                switch (_6.label) {
                     case 0:
                         isKKNode = document.getElementById("isKK");
                         managerNode = document.getElementById("manager");
                         cmsNode = document.getElementById("cms");
                         ipNode = document.getElementById("ip");
-                        if (isKKNode === null || managerNode === null || cmsNode === null || ipNode === null) {
+                        erpnextUrl = document.getElementById("erpnextUrl");
+                        if (isKKNode === null || managerNode === null || cmsNode === null || ipNode === null || erpnextUrl === null) {
                             throw new Error("Element not found");
                         }
                         _a = this.setContent;
                         _b = [isKKNode];
                         return [4 /*yield*/, this.dataProvider.getIsKK()];
                     case 1:
-                        _b = _b.concat([(_4.sent()) ? "Ja" : "Nein"]);
+                        _b = _b.concat([(_6.sent()) ? "Ja" : "Nein"]);
                         return [4 /*yield*/, this.dataProvider.getIsKK()];
                     case 2:
-                        _a.apply(this, _b.concat([(_4.sent()) ? "#00FF00" : "#FF0000"]));
+                        _a.apply(this, _b.concat([(_6.sent()) ? "#00FF00" : "#FF0000"]));
                         _c = this.setLink;
                         _d = [managerNode];
-                        return [4 /*yield*/, this.dataProvider.getManager().then(function (manager) { return manager.title; })];
+                        return [4 /*yield*/, this.dataProvider.getManager().then(function (manager) {
+                                return manager.title;
+                            })];
                     case 3:
-                        _d = _d.concat([_4.sent()]);
-                        return [4 /*yield*/, this.dataProvider.getManager().then(function (manager) { return manager.login; })];
+                        _d = _d.concat([_6.sent()]);
+                        return [4 /*yield*/, this.dataProvider.getManager().then(function (manager) {
+                                return manager.login;
+                            })];
                     case 4:
-                        _c.apply(this, _d.concat([_4.sent()]));
+                        _c.apply(this, _d.concat([_6.sent()]));
+                        _e = this.setLink;
+                        _f = [erpnextUrl];
+                        return [4 /*yield*/, this.dataProvider.getERPNextUrl().then(function (manager) {
+                                return manager.name;
+                            })];
+                    case 5:
+                        _f = _f.concat([_6.sent()]);
+                        return [4 /*yield*/, this.dataProvider.getERPNextUrl().then(function (manager) {
+                                return manager.url;
+                            })];
+                    case 6:
+                        _e.apply(this, _f.concat([_6.sent()]));
                         return [4 /*yield*/, this.dataProvider.getCMS().then(function (cms) {
                                 if (cms.login == "") {
                                     _this.setContent(cmsNode, cms.title);
@@ -267,13 +304,13 @@ var ExtensionBuilder = /** @class */ (function () {
                                     _this.setLink(cmsNode, cms.title, _this.url + cms.login);
                                 }
                             })];
-                    case 5:
-                        _4.sent();
-                        _e = this.setContent;
-                        _f = [ipNode];
+                    case 7:
+                        _6.sent();
+                        _g = this.setContent;
+                        _h = [ipNode];
                         return [4 /*yield*/, this.dataProvider.getIP()];
-                    case 6:
-                        _e.apply(this, _f.concat([_4.sent()]));
+                    case 8:
+                        _g.apply(this, _h.concat([_6.sent()]));
                         mxNode = document.getElementById("mx");
                         mailAdminNode = document.getElementById("mail-admin");
                         imapServerNode = document.getElementById("imap-servername");
@@ -285,55 +322,71 @@ var ExtensionBuilder = /** @class */ (function () {
                         if (mxNode === null || imapServerNode === null || imapPortNode === null || popServerNode === null || popPortNode === null || smtpServerNode === null || smtpPortNode === null) {
                             throw new Error("Element not found");
                         }
-                        _g = this.setContent;
-                        _h = [mxNode];
+                        _j = this.setContent;
+                        _k = [mxNode];
                         return [4 /*yield*/, this.dataProvider.getMX()];
-                    case 7:
-                        _g.apply(this, _h.concat([_4.sent()]));
-                        _j = this.setLink;
-                        _k = [mailAdminNode];
-                        return [4 /*yield*/, this.dataProvider.getMailSettingsAdmin().then(function (mailSettingsAdmin) { return mailSettingsAdmin; })];
-                    case 8:
-                        _k = _k.concat([_4.sent()]);
-                        return [4 /*yield*/, this.dataProvider.getMailSettingsAdmin().then(function (mailSettingsAdmin) { return mailSettingsAdmin; })];
                     case 9:
-                        _j.apply(this, _k.concat([_4.sent()]));
-                        _l = this.setContent;
-                        _m = [imapServerNode];
-                        _o = "IP: ";
-                        return [4 /*yield*/, this.dataProvider.getImap().then(function (imap) { return imap[0]; })];
+                        _j.apply(this, _k.concat([_6.sent()]));
+                        _l = this.setLink;
+                        _m = [mailAdminNode];
+                        return [4 /*yield*/, this.dataProvider.getMailSettingsAdmin().then(function (mailSettingsAdmin) {
+                                return mailSettingsAdmin;
+                            })];
                     case 10:
-                        _l.apply(this, _m.concat([_o + (_4.sent())]));
-                        _p = this.setContent;
-                        _q = [imapPortNode];
-                        _r = "Port: ";
-                        return [4 /*yield*/, this.dataProvider.getImap().then(function (imap) { return imap[1]; })];
+                        _m = _m.concat([_6.sent()]);
+                        return [4 /*yield*/, this.dataProvider.getMailSettingsAdmin().then(function (mailSettingsAdmin) {
+                                return mailSettingsAdmin;
+                            })];
                     case 11:
-                        _p.apply(this, _q.concat([_r + (_4.sent())]));
-                        _s = this.setContent;
-                        _t = [popServerNode];
-                        _u = "IP: ";
-                        return [4 /*yield*/, this.dataProvider.getPop().then(function (pop) { return pop[0]; })];
+                        _l.apply(this, _m.concat([_6.sent()]));
+                        _o = this.setContent;
+                        _p = [imapServerNode];
+                        _q = "IP: ";
+                        return [4 /*yield*/, this.dataProvider.getImap().then(function (imap) {
+                                return imap[0];
+                            })];
                     case 12:
-                        _s.apply(this, _t.concat([_u + (_4.sent())]));
-                        _v = this.setContent;
-                        _w = [popPortNode];
-                        _x = "Port: ";
-                        return [4 /*yield*/, this.dataProvider.getPop().then(function (pop) { return pop[1]; })];
+                        _o.apply(this, _p.concat([_q + (_6.sent())]));
+                        _r = this.setContent;
+                        _s = [imapPortNode];
+                        _t = "Port: ";
+                        return [4 /*yield*/, this.dataProvider.getImap().then(function (imap) {
+                                return imap[1];
+                            })];
                     case 13:
-                        _v.apply(this, _w.concat([_x + (_4.sent())]));
-                        _y = this.setContent;
-                        _z = [smtpServerNode];
-                        _0 = "IP: ";
-                        return [4 /*yield*/, this.dataProvider.getSmtp().then(function (smtp) { return smtp[0]; })];
+                        _r.apply(this, _s.concat([_t + (_6.sent())]));
+                        _u = this.setContent;
+                        _v = [popServerNode];
+                        _w = "IP: ";
+                        return [4 /*yield*/, this.dataProvider.getPop().then(function (pop) {
+                                return pop[0];
+                            })];
                     case 14:
-                        _y.apply(this, _z.concat([_0 + (_4.sent())]));
-                        _1 = this.setContent;
-                        _2 = [smtpPortNode];
-                        _3 = "Port: ";
-                        return [4 /*yield*/, this.dataProvider.getSmtp().then(function (smtp) { return smtp[1]; })];
+                        _u.apply(this, _v.concat([_w + (_6.sent())]));
+                        _x = this.setContent;
+                        _y = [popPortNode];
+                        _z = "Port: ";
+                        return [4 /*yield*/, this.dataProvider.getPop().then(function (pop) {
+                                return pop[1];
+                            })];
                     case 15:
-                        _1.apply(this, _2.concat([_3 + (_4.sent())]));
+                        _x.apply(this, _y.concat([_z + (_6.sent())]));
+                        _0 = this.setContent;
+                        _1 = [smtpServerNode];
+                        _2 = "IP: ";
+                        return [4 /*yield*/, this.dataProvider.getSmtp().then(function (smtp) {
+                                return smtp[0];
+                            })];
+                    case 16:
+                        _0.apply(this, _1.concat([_2 + (_6.sent())]));
+                        _3 = this.setContent;
+                        _4 = [smtpPortNode];
+                        _5 = "Port: ";
+                        return [4 /*yield*/, this.dataProvider.getSmtp().then(function (smtp) {
+                                return smtp[1];
+                            })];
+                    case 17:
+                        _3.apply(this, _4.concat([_5 + (_6.sent())]));
                         return [2 /*return*/];
                 }
             });
