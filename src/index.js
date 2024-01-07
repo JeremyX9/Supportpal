@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 async function loadData(url) {
-    const response = await fetch("https://kksupport.ddev.site/api/domainQuery/" + url);
+    const response = await fetch("https://support.kkag.de/api/domainQuery/" + url);
     if (!response.ok) {
         return;
     }
