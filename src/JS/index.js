@@ -54,7 +54,7 @@ var DataProvider = /** @class */ (function () {
         if (domain === null)
             throw new Error("Domain is null");
         this.domain = domain;
-        this.supportToolDomain = "https://kksupport.ddev.site/api/domainQuery/" + this.domain;
+        this.supportToolDomain = "https://support.kkag.de/api/domainQuery/" + this.domain;
         this.data = this.getSupportToolData();
     }
     DataProvider.prototype.getSupportToolData = function () {
